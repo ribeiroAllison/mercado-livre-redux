@@ -6,10 +6,12 @@
     --yellowData: rgb(253, 246, 167);
     --gray30: #303030;
     --purple: #232D7B;
+    --lightGray: rgb(235, 235, 235);
 }
 
 html,
 body{
     font-family: 'Roboto';
     color: var(--purple);
+    font-size: 18px;
 }
