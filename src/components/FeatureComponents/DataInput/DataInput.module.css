@@ -1,0 +1,24 @@
+.dataCtr{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    border: 1px solid var(--gray30);
+    width: 20%;
+    margin: 1rem;
+    background-color: var(--yellowML);
+}
+
+.valueInput{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.valueInput input{
+    width: 200px;
+    height: 1.3rem;
+    border-radius: 6px;
+    border-style: none;
+    border: 1px solid var(--gray30);
+}
