@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Profit Margin Calculator for Mercado Livre E-commerce
 
-## Getting Started
+![alt screenshot of the program](/public/images/screenshot.png "Program screenshot")
 
-First, run the development server:
+## What is it?
+ It is a program that calculates the `profit margin` of a certain product sold in Mercado Livre, the `biggest marketplace in Brazil`.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## How it works?
+The program receives `five params` and returns an info table with all the `detailed costs and expenses` involved in selling a product in Mercado Livre.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+>**The params received are:**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Type of ad (classic or premium)
+- Selling price
+- Product cost
+- Selling tax
+- Product weight
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+>**The outputs are:**
 
-To learn more about Next.js, take a look at the following resources:
+- Selling price
+- Sale tax (in BRL)
+- Commission from the marketplace
+- Freight (based on weight)
+- Product cost
+- Net Profit
+- Percentage of profit over sale's price
+- Percentage of profit over the cost
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Goal
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This will be `used by e-commerce companies` to calculate profit and product viability `faster and more conveniently` than a normal excel spreadsheet.
 
-## Deploy on Vercel
+I also plan on adapting this project to React Native to `make it an app`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies used:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### React.js
+### Next.js
+### Styled Components
+### Redux
+### Jest
+
+
+## Here is the deployed finished program, hope you like it!: [Calculador de Lucro - Mercado Livre](https://mercado-livre-redux.vercel.app/)
