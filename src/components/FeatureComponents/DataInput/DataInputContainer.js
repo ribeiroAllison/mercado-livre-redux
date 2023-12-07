@@ -1,3 +1,5 @@
+"use client"
+
 import DataInput from "./DataInput"
 import { useDispatch, useSelector } from 'react-redux';
 import { 
@@ -7,7 +9,6 @@ import {
         editPrecoVenda, 
         editTipoAnuncio,
         selectDataInput } from "@/redux/DataInput/dataInputSlice";
-
 
 
 const DataInputContainer = () =>{
@@ -36,8 +37,14 @@ const DataInputContainer = () =>{
             case "tipoAnuncio":
                 dispatch(editTipoAnuncio(value));
                 break;
+            
+            default:
+                break;
         }
+        
+        console.log(dataInputState)
     }
+
 
     return(
         <DataInput state={dataInputState} handleEdit={handleEdit}/>

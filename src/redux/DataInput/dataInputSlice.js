@@ -5,7 +5,7 @@ const initialState = {
     precoVenda: "",
     custo: "",
     imposto: "",
-    peso: 0
+    peso: ""
 };
 
 const dataInputSlice = createSlice({
