@@ -21,23 +21,23 @@ const ResultsTableContainer = () => {
 
     const dispatch = useDispatch();
 
-    const calculateImposto = () => {
-        const treatedPercentage = Number(inputState.imposto.replace(/\D/g, '')) / 100;
+    const calculateImposto = (value) => {
+        const treatedPercentage = Number(value.replace(/\D/g, '')) / 100;
         return (Number(inputState.precoVenda) * treatedPercentage).toFixed(2);
     };
 
-    const calculateComissao = () => {
+    const calculateComissao = (tipoAnuncio, value) => {
         let comissao;
-        if(inputState.tipoAnuncio === 'classico'){
-            comissao = Number(inputState.precoVenda) * 0.13;
+        if(tipoAnuncio === 'classico'){
+            comissao = Number(value) * 0.13;
         } else{
-            comissao = Number(inputState.precoVenda) * 0.18;
+            comissao = Number(value) * 0.18;
         }
         return comissao;
     };
 
-    const calculateFrete = () => {
-        const preco = inputState.precoVenda;
+    const calculateFrete = (value, peso) => {
+        const preco = value;
         const maxPrice = 79;
         const fixed = 6;
         const tabelaFrete = {
@@ -69,43 +69,33 @@ const ResultsTableContainer = () => {
             return fixed;
         } else {
             for (let key of Object.keys(tabelaFrete)) {
-                if (Number(inputState.peso) * 1000 <= Number(key)) {
+                if (Number(peso) * 1000 <= Number(key)) {
                     return tabelaFrete[key];
                 }
             }
         }
     };
 
-    const calculateLiquido = () => {
-        const venda = inputState.precoVenda;
-        const custo = inputState.custo;
-        const imposto = tableState.imposto;
-        const comissao = tableState.comissao;
-        const frete =tableState.frete;
+    const calculateLiquido = (venda, custo, imposto, comissao, frete) => {
         const liquido = venda - custo - imposto - comissao - frete;
-
         return liquido;
     };
 
-    const margemVenda = () => {
-        const liquido = tableState.liquido;
-        const venda = inputState.precoVenda
+    const margemVenda = (venda, liquido) => {
         return  liquido / venda;
     };
 
-    const margemCusto = () => {
-        const liquido = tableState.liquido;
-        const custo = inputState.custo;
+    const margemCusto = (custo, liquido) => {
         return liquido / custo;
     };
 
     const updateData = () => {
-        dispatch(getImposto(calculateImposto()));
-        dispatch(getComissao(calculateComissao()));
-        dispatch(getFrete(calculateFrete()));
-        dispatch(getLiquido(calculateLiquido()));
-        dispatch(getMargemCusto(margemCusto()));
-        dispatch(getMargemVenda(margemVenda()));
+        dispatch(getImposto(calculateImposto(inputState.imposto)));
+        dispatch(getComissao(calculateComissao(inputState.tipoAnuncio, inputState.precoVenda)));
+        dispatch(getFrete(calculateFrete(inputState.percoVenda, inputState.peso)));
+        dispatch(getLiquido(calculateLiquido(inputState.precoVenda, inputState.custo, tableState.imposto, tableState.comissao, tableState.frete)));
+        dispatch(getMargemCusto(margemCusto(inputState.custo, tableState.liquido)));
+        dispatch(getMargemVenda(margemVenda(inputState.precoVenda, tableState.liquido)));
     };
 
     useEffect(() => {
