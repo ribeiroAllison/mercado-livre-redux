@@ -34,13 +34,13 @@ This will be `used by e-commerce companies` to calculate profit and product viab
 
 I also plan on adapting this project to React Native to `make it an app`.
 
-## Technologies used:
+## Main technologies used:
 
-### React.js
-### Next.js
-### Styled Components
-### Redux
-### Jest
+#### • React.js
+#### • Next.js
+#### • Styled Components
+#### • Redux
+#### • Jest
 
 
 ## Here is the deployed finished program, hope you like it!: [Calculador de Lucro - Mercado Livre](https://mercado-livre-redux.vercel.app/)
