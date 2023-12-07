@@ -82,7 +82,6 @@ const ResultsTableContainer = () => {
         const imposto = tableState.imposto;
         const comissao = tableState.comissao;
         const frete =tableState.frete;
-        console.log()
         const liquido = venda - custo - imposto - comissao - frete;
 
         return liquido;
