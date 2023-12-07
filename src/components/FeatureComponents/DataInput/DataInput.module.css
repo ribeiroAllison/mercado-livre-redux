@@ -22,3 +22,9 @@
     border-style: none;
     border: 1px solid var(--gray30);
 }
+
+@media (max-width: 768px){
+    .dataCtr{
+        width: 80%;
+    }
+}

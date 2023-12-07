@@ -6,3 +6,10 @@
     height: 100%;
     justify-content: space-around;
 }
+@media (max-width: 768px) {
+    .mainCtr{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

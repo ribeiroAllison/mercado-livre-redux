@@ -19,15 +19,8 @@
     margin: 0.7rem;
 }
 
-@media only screen and (max-width: 600px){
-    #table{
+@media only screen and (max-width: 768px){
+    .table{
         width: 90%;
     }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1000px){
-    #table{
-        width: 45%;
-    }
-
 }
