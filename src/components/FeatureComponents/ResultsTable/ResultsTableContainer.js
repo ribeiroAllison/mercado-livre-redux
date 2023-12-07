@@ -1,6 +1,6 @@
 "use client";
 
-import ResultsTable from "./ResultsTable"
+import ResultsTable from "./ResultsTable";
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getImposto,
@@ -10,7 +10,7 @@ import {
     getMargemVenda,
     getMargemCusto,
     selectDataTable
-} from '@/redux/DataTable/dataTableSlice'
+} from '@/redux/DataTable/dataTableSlice';
 
 import { selectDataInput } from "@/redux/DataInput/dataInputSlice";
 import { useEffect } from "react";
@@ -38,7 +38,7 @@ const ResultsTableContainer = () => {
 
     const calculateFrete = () => {
         const preco = inputState.precoVenda;
-        const max_price = 79;
+        const maxPrice = 79;
         const fixed = 6;
         const tabelaFrete = {
             300: 18.95,
@@ -65,13 +65,13 @@ const ResultsTableContainer = () => {
             150010: 242.45,
         };
 
-        if (preco < max_price) {
+        if (preco < maxPrice) {
             return fixed;
         } else {
             for (let key of Object.keys(tabelaFrete)) {
-            if (Number(inputState.peso) * 1000 <= Number(key)) {
-                return tabelaFrete[key];
-            }
+                if (Number(inputState.peso) * 1000 <= Number(key)) {
+                    return tabelaFrete[key];
+                }
             }
         }
     };
@@ -106,7 +106,7 @@ const ResultsTableContainer = () => {
         dispatch(getLiquido(calculateLiquido()));
         dispatch(getMargemCusto(margemCusto()));
         dispatch(getMargemVenda(margemVenda()));
-    }
+    };
 
     useEffect(() => {
         updateData();
@@ -115,6 +115,6 @@ const ResultsTableContainer = () => {
     return(
         <ResultsTable tableState={tableState} inputState={inputState}/>
     )
-}
+};
 
 export default ResultsTableContainer;

@@ -1,6 +1,17 @@
+"use client"
+
 import styles from './ResultsTable.module.css';
 
 const ResultsTable = ({inputState, tableState}) => {
+
+    const transformToCurrency = (value) =>{
+        return Intl.NumberFormat('pt-BR', {style:'currency', currency: 'BRL'}).format(value);
+    }
+
+    const transformToPercentage = (value) => {
+        const formatted = new Intl.NumberFormat('pt-BR', {style: 'percent', minimumFractionDigits: 2}).format(value);
+        return formatted.replace(/\u200E/g, '')
+    }   
     return(
         <div className={styles.table}>
                 
@@ -14,37 +25,35 @@ const ResultsTable = ({inputState, tableState}) => {
                     <tbody>
                         <tr>
                             <td>Preço de Venda</td>
-                            <td>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(inputState.precoVenda)}</td>
+                            <td>{transformToCurrency(inputState.precoVenda)}</td>
                         </tr>
                         <tr>
                             <td>Imposto sobre Venda </td>
-                            <td>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(tableState.imposto)}</td>
+                            <td>{transformToCurrency(tableState.imposto)}</td>
                         </tr>
                         <tr>
                             <td>Comissão </td>
-                            <td>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(tableState.comissao)}</td>
+                            <td>{transformToCurrency(tableState.comissao)}</td>
                         </tr>
                         <tr>
                             <td>Frete </td>
-                            <td>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(tableState.frete)}</td>
+                            <td>{transformToCurrency(tableState.frete)}</td>
                         </tr>
                         <tr>
                             <td>Custo</td> 
-                            <td>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(inputState.custo)}</td>
+                            <td>{transformToCurrency(inputState.custo)}</td>
                         </tr>
                         <tr>
                             <td>Líquido</td> 
-                            <td>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(tableState.liquido)}</td>
+                            <td>{transformToCurrency(tableState.liquido)}</td>
                         </tr>
                         <tr>
                             <td>Margem sobre Venda</td>
-                            <td>{
-                            Number(tableState.margemVenda).toLocaleString(undefined, {style: 'percent', minimumFractionDigits: 2})
-                            }</td>
+                            <td>{transformToPercentage(tableState.margemVenda)}</td>
                         </tr>
                         <tr>
                             <td>Margem sobre Custo</td>
-                            <td>{Number(tableState.margemCusto).toLocaleString(undefined, {style: 'percent', minimumFractionDigits: 2})}</td>
+                            <td>{transformToPercentage(tableState.margemCusto)}</td>
                         </tr>
                     </tbody>
                     

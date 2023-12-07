@@ -25,6 +25,10 @@
     font-size: 20px;
 }
 
+.fieldset{
+    height: 2rem;
+}
+
 @media (max-width: 768px){
     .dataCtr{
         width: 80%;
