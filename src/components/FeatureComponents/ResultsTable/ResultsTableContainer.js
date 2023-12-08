@@ -1,7 +1,6 @@
 "use client";
 
 import ResultsTable from "./ResultsTable";
-import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getImposto,
@@ -23,7 +22,8 @@ import {
 } from './utils'
 
 import { selectDataInput } from "@/redux/DataInput/dataInputSlice";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+
 
 
 const ResultsTableContainer = () => {

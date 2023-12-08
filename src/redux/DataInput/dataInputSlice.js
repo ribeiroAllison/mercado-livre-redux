@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    tipoAnuncio: "",
+    tipoAnuncio: "classico",
     precoVenda: "",
     custo: "",
     imposto: "",

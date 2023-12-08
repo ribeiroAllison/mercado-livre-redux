@@ -9,7 +9,7 @@ const DataInput = ({state, handleEdit}) => {
         <section className={styles.dataCtr}>
             <fieldset className={styles.fieldset}>
                 <legend>Tipo de Anúncio</legend>
-                <input type='radio' name='tipoAnuncio' value='classico' id='classico' onChange={handleEdit}/>
+                <input type='radio' name='tipoAnuncio' value='classico' id='classico' onChange={handleEdit} defaultChecked/>
                 <label htmlFor="classico">Clássico</label>
                 <input type='radio' name='tipoAnuncio' value='premium' id='premium' onChange={handleEdit}/>
                 <label htmlFor="classico">Premium</label>
