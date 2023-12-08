@@ -1,6 +1,7 @@
 "use client"
 
 import styles from './ResultsTable.module.css';
+import React from 'react';
 
 const ResultsTable = ({inputState, tableState}) => {
 

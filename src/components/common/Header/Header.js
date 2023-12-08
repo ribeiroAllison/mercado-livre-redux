@@ -3,6 +3,7 @@
 import logo from '../../../../public/images/mercadolivre.png'
 import styles from './Header.module.css'
 import Image from 'next/image'
+import React from 'react'
 
 const Header = () =>{
     return(

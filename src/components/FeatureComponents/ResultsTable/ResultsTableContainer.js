@@ -1,6 +1,7 @@
 "use client";
 
 import ResultsTable from "./ResultsTable";
+import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getImposto,

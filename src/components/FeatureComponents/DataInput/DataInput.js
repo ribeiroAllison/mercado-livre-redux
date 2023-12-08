@@ -1,6 +1,7 @@
 "use client"
 
 import styles from './DataInput.module.css'
+import React from 'react'
 
 const DataInput = ({state, handleEdit}) => {
 

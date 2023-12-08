@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react";
 import DataInput from "./DataInput"
 import { useDispatch, useSelector } from 'react-redux';
 import { 
