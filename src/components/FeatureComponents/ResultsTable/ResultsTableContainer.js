@@ -55,7 +55,7 @@ export const calculateFrete = (precoVenda, peso) => {
         100000: 193.95,
         125000: 216.95,
         150000: 230.45,
-        150010: 242.45,
+        Infinity: 242.45,
     };
 
     if (Number(precoVenda) < maxPrice) {
