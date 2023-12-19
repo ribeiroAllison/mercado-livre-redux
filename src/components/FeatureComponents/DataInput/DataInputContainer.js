@@ -9,7 +9,7 @@ import {
         editPeso, 
         editPrecoVenda, 
         editTipoAnuncio,
-        selectDataInput } from "@/redux/DataInput/dataInputSlice";
+        selectDataInput } from "../../../redux/DataInput/dataInputSlice";
 
 
 const DataInputContainer = () =>{
