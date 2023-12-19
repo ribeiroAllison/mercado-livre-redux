@@ -10,7 +10,7 @@ import {
     getMargemVenda,
     getMargemCusto,
     selectDataTable
-} from '../../../redux/DataTable/dataTableSlice';
+} from '@/redux/DataTable/dataTableSlice';
 
 import {
     calculateComissao,
@@ -21,7 +21,7 @@ import {
     margemVenda
 } from './utils'
 
-import { selectDataInput } from "../../../redux/DataInput/dataInputSlice";
+import { selectDataInput } from "@/redux/DataInput/dataInputSlice";
 import React, { useEffect } from "react";
 
 
