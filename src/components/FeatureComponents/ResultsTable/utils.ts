@@ -1,24 +1,27 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.margemCusto = exports.margemVenda = exports.calculateLiquido = exports.calculateFrete = exports.calculateComissao = exports.calculateImposto = void 0;
-var calculateImposto = function (imposto, precoVenda) {
-    var treatedPercentage = Number(imposto.replace(/\D/g, '')) / 100;
+import { SingleTypeFunction, TwoTypeFunction } from "./types";
+
+export const calculateImposto: SingleTypeFunction<string> = (imposto, precoVenda) => {
+    const treatedPercentage = Number(imposto.replace(/\D/g, '')) / 100;
     return (Number(precoVenda) * treatedPercentage).toFixed(2);
 };
-exports.calculateImposto = calculateImposto;
-var calculateComissao = function (tipoAnuncio, value) {
-    var comissao;
-    if (tipoAnuncio === 'classico') {
+
+export const calculateComissao: TwoTypeFunction<string, number> = (tipoAnuncio, value) => {
+    let comissao;
+    if(tipoAnuncio === 'classico'){
         comissao = Number(value) * 0.13;
-    }
-    else {
+    } else{
         comissao = Number(value) * 0.18;
     }
     return comissao;
 };
-exports.calculateComissao = calculateComissao;
-var calculateFrete = function (precoVenda, peso) {
-    var tabelaFrete = [
+
+export const calculateFrete = (precoVenda: string, peso: string) => {
+    interface FreightData {
+        minWeight: number;
+        price: number;
+    }
+
+    const tabelaFrete: FreightData[] = [
         { minWeight: 300, price: 18.95 },
         { minWeight: 500, price: 19.45 },
         { minWeight: 1000, price: 21.45 },
@@ -42,28 +45,34 @@ var calculateFrete = function (precoVenda, peso) {
         { minWeight: 150000, price: 230.45 },
         { minWeight: Number.POSITIVE_INFINITY, price: 242.45 },
     ];
-    var maxPrice = 79;
-    var fixed = 6;
+
+    const maxPrice = 79;
+    const fixed = 6;
+
     if (Number(precoVenda) >= maxPrice) {
-        var weight_1 = Number(peso) * 1000;
-        var applicablePrice = tabelaFrete.find(function (entry) { return entry.minWeight >= weight_1; });
-        if (applicablePrice) {
+        const weight = Number(peso) * 1000;
+        const applicablePrice = tabelaFrete.find(entry => entry.minWeight >= weight);
+
+        if(applicablePrice){
             return applicablePrice.price;
         }
+
+            
     }
+
     return fixed;
 };
-exports.calculateFrete = calculateFrete;
-var calculateLiquido = function (venda, custo, imposto, comissao, frete) {
-    var liquido = venda - custo - imposto - comissao - frete;
+
+
+export const calculateLiquido = (venda: number, custo: number, imposto: number, comissao: number, frete: number): number => {
+    const liquido = venda - custo - imposto - comissao - frete;
     return liquido;
 };
-exports.calculateLiquido = calculateLiquido;
-var margemVenda = function (venda, liquido) {
-    return liquido / venda;
+
+export const margemVenda: SingleTypeFunction<number> = (venda, liquido) => {
+    return  liquido / venda;
 };
-exports.margemVenda = margemVenda;
-var margemCusto = function (custo, liquido) {
+
+export const margemCusto: SingleTypeFunction<number> = (custo, liquido) => {
     return liquido / custo;
 };
-exports.margemCusto = margemCusto;
