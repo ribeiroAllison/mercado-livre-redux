@@ -15,7 +15,7 @@ export const calculateComissao: TwoTypeFunction<string, number> = (tipoAnuncio, 
     return comissao;
 };
 
-export const calculateFrete = (precoVenda: string, peso: string) => {
+export const calculateFrete: TwoTypeFunction<string, number> = (precoVenda, peso) => {
     interface FreightData {
         minWeight: number;
         price: number;

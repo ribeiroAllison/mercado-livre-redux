@@ -1,7 +1,8 @@
 "use client"
 
-import styles from './ResultsTable.module.css';
+import styles from './ResultsTable.module.css'
 import React from 'react';
+
 
 const ResultsTable = ({inputState, tableState}) => {
 
@@ -16,7 +17,7 @@ const ResultsTable = ({inputState, tableState}) => {
     return(
         <div className={styles.table}>
                 
-                <table border="1" className={styles.results}>
+                <table border={1} className={styles.results}>
                     <thead>
                         <tr>
                             <th>Natureza</th>
